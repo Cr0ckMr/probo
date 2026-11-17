@@ -95,6 +95,7 @@ export function ThirdPartyProfilePage({ queryRef }: ThirdPartyProfilePageProps) 
   const {
     control,
     register,
+    savedCybervadisUrl,
     handleSubmit,
     formState: { errors, isSubmitting },
   } = useThirdPartyProfileForm(thirdParty);
@@ -181,6 +182,32 @@ export function ThirdPartyProfilePage({ queryRef }: ThirdPartyProfilePageProps) 
             />
           </Card>
         </div>
+
+        <section className="space-y-4">
+          <h2 className="text-base font-medium">CyberVadis</h2>
+          <Card padded className="space-y-4">
+            <Field
+              {...register("cybervadisUrl")}
+              type="url"
+              pattern="https://.+"
+              label={t("thirdPartyProfilePage.fields.cybervadisUrl")}
+              disabled={isFormDisabled}
+            />
+            <Field name="cybervadisExpiresOn" label={t("thirdPartyProfilePage.fields.cybervadisExpiresOn")}>
+              <input
+                {...register("cybervadisExpiresOn")}
+                id="cybervadisExpiresOn"
+                type="date"
+                disabled={isFormDisabled}
+              />
+            </Field>
+            {savedCybervadisUrl?.startsWith("https://") && (
+              <a href={savedCybervadisUrl} target="_blank" rel="noopener noreferrer" className="underline">
+                {t("thirdPartyProfilePage.openCybervadis")}
+              </a>
+            )}
+          </Card>
+        </section>
 
         <div className="flex justify-end">
           {thirdParty.canUpdate && (

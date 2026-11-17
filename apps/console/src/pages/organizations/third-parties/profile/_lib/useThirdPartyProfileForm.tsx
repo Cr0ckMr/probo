@@ -33,6 +33,8 @@ const schema = z.object({
   description: z.string().optional().nullable(),
   category: z.string().nullish(),
   websiteUrl: z.string().optional().nullable(),
+  cybervadisUrl: z.string().optional().nullable(),
+  cybervadisExpiresOn: z.string().optional().nullable(),
   legalName: z.string().optional().nullable(),
   headquarterAddress: z.string().optional().nullable(),
   countries: z.array(z.string()),
@@ -45,6 +47,8 @@ const thirdPartyProfileFormFragment = graphql`
     description
     category
     websiteUrl
+    cybervadisUrl
+    cybervadisExpiresOn
     legalName
     headquarterAddress
     countries
@@ -78,6 +82,8 @@ export function useThirdPartyProfileForm(
       description: thirdParty.description || null,
       category: thirdParty.category || null,
       websiteUrl: thirdParty.websiteUrl || null,
+      cybervadisUrl: thirdParty.cybervadisUrl || null,
+      cybervadisExpiresOn: thirdParty.cybervadisExpiresOn || null,
       legalName: thirdParty.legalName || null,
       headquarterAddress: thirdParty.headquarterAddress || null,
       countries: [...(thirdParty.countries ?? [])],
@@ -99,6 +105,8 @@ export function useThirdPartyProfileForm(
           countries: data.countries,
           description: data.description || null,
           websiteUrl: data.websiteUrl || null,
+          cybervadisUrl: data.cybervadisUrl || null,
+          cybervadisExpiresOn: data.cybervadisExpiresOn || null,
           legalName: data.legalName || null,
           headquarterAddress: data.headquarterAddress || null,
         },
@@ -114,6 +122,7 @@ export function useThirdPartyProfileForm(
 
   return {
     ...form,
+    savedCybervadisUrl: thirdParty.cybervadisUrl,
     handleSubmit,
   };
 }

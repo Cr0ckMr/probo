@@ -5965,7 +5965,10 @@
     "title": "Profiel",
     "description": "Identiteit en vestigingslanden van deze derde partij.",
     "sections": { "details": "Gegevens derde partij", "countries": "Landen" },
+    "openCybervadis": "CyberVadis-beoordeling openen",
     "fields": {
+      "cybervadisUrl": "Link naar beoordeling",
+      "cybervadisExpiresOn": "Vervaldatum",
       "name": "Naam",
       "description": "Beschrijving",
       "category": "Categorie",

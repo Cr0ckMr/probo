@@ -304,6 +304,8 @@ type ThirdParty implements Node {
     headquarterAddress: String
     legalName: String
     websiteUrl: String
+    cybervadisUrl: String
+    cybervadisExpiresOn: String
     level: Int!
 
     parentThirdParty: ThirdParty @goField(forceResolver: true)
@@ -527,6 +529,8 @@ input CreateThirdPartyInput {
     headquarterAddress: String
     legalName: String
     websiteUrl: String
+    cybervadisUrl: String
+    cybervadisExpiresOn: String
     privacyPolicyUrl: String
     category: ThirdPartyCategory
     serviceLevelAgreementUrl: String
@@ -555,6 +559,8 @@ input UpdateThirdPartyInput {
     businessAssociateAgreementUrl: String @goField(omittable: true)
     subprocessorsListUrl: String @goField(omittable: true)
     websiteUrl: String @goField(omittable: true)
+    cybervadisUrl: String @goField(omittable: true)
+    cybervadisExpiresOn: String @goField(omittable: true)
     legalName: String @goField(omittable: true)
     headquarterAddress: String @goField(omittable: true)
     category: ThirdPartyCategory

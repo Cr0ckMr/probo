@@ -3226,7 +3226,10 @@
     "title": "Profile",
     "description": "Identity and operating locations for this third party.",
     "sections": { "details": "Third party details", "countries": "Countries" },
+    "openCybervadis": "Open CyberVadis assessment",
     "fields": {
+      "cybervadisUrl": "Assessment link",
+      "cybervadisExpiresOn": "Expiration date",
       "name": "Name",
       "description": "Description",
       "category": "Category",

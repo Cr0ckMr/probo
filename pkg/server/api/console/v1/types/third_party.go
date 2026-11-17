@@ -90,6 +90,8 @@ func NewThirdParty(v *coredata.ThirdParty) *ThirdParty {
 		HeadquarterAddress:            v.HeadquarterAddress,
 		LegalName:                     v.LegalName,
 		WebsiteURL:                    v.WebsiteURL,
+		CybervadisURL:                 v.CybervadisURL,
+		CybervadisExpiresOn:           v.CybervadisExpiresOn,
 		Category:                      v.Category,
 		Level:                         v.Level,
 		Countries:                     v.Countries,

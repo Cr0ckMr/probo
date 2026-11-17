@@ -5980,7 +5980,10 @@
     "title": "Profil",
     "description": "Identité et lieux d’activité de ce tiers.",
     "sections": { "details": "Détails du tiers", "countries": "Pays" },
+    "openCybervadis": "Ouvrir l’évaluation CyberVadis",
     "fields": {
+      "cybervadisUrl": "Lien vers l’évaluation",
+      "cybervadisExpiresOn": "Date d’expiration",
       "name": "Nom",
       "description": "Description",
       "category": "Catégorie",

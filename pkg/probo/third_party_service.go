@@ -47,6 +47,8 @@ type (
 		HeadquarterAddress            *string
 		LegalName                     *string
 		WebsiteURL                    *string
+		CybervadisURL                 *string
+		CybervadisExpiresOn           *string
 		Category                      *coredata.ThirdPartyCategory
 		PrivacyPolicyURL              *string
 		ServiceLevelAgreementURL      *string
@@ -70,6 +72,8 @@ type (
 		HeadquarterAddress            **string
 		LegalName                     **string
 		WebsiteURL                    **string
+		CybervadisURL                 **string
+		CybervadisExpiresOn           **string
 		TermsOfServiceURL             **string
 		Category                      *coredata.ThirdPartyCategory
 		PrivacyPolicyURL              **string
@@ -117,6 +121,8 @@ func (cvr *CreateThirdPartyRequest) Validate() error {
 	v.Check(cvr.HeadquarterAddress, "headquarter_address", validator.SafeText(ContentMaxLength))
 	v.Check(cvr.LegalName, "cvr.LegalName", validator.SafeTextNoNewLine(TitleMaxLength))
 	v.Check(cvr.WebsiteURL, "website_url", validator.SafeText(2048))
+	v.Check(cvr.CybervadisURL, "cybervadis_url", validator.HTTPSUrl(), validator.SafeText(2048))
+	v.Check(cvr.CybervadisExpiresOn, "cybervadis_expires_on", validator.CalendarDate())
 	v.Check(cvr.Category, "category", validator.OneOfSlice(coredata.ThirdPartyCategories()))
 	v.Check(cvr.PrivacyPolicyURL, "privacy_policy_url", validator.SafeText(2048))
 	v.Check(cvr.ServiceLevelAgreementURL, "service_level_agreement_url", validator.SafeText(2048))
@@ -145,6 +151,8 @@ func (uvr *UpdateThirdPartyRequest) Validate() error {
 	v.Check(uvr.HeadquarterAddress, "headquarter_address", validator.SafeText(ContentMaxLength))
 	v.Check(uvr.LegalName, "uvr.LegalName", validator.SafeTextNoNewLine(TitleMaxLength))
 	v.Check(uvr.WebsiteURL, "website_url", validator.SafeText(2048))
+	v.Check(uvr.CybervadisURL, "cybervadis_url", validator.HTTPSUrl(), validator.SafeText(2048))
+	v.Check(uvr.CybervadisExpiresOn, "cybervadis_expires_on", validator.CalendarDate())
 	v.Check(uvr.Category, "category", validator.OneOfSlice(coredata.ThirdPartyCategories()))
 	v.Check(uvr.PrivacyPolicyURL, "privacy_policy_url", validator.SafeText(2048))
 	v.Check(uvr.ServiceLevelAgreementURL, "service_level_agreement_url", validator.SafeText(2048))
@@ -440,6 +448,12 @@ func (s ThirdPartyService) Update(
 			if req.WebsiteURL != nil {
 				thirdParty.WebsiteURL = *req.WebsiteURL
 			}
+			if req.CybervadisURL != nil {
+				thirdParty.CybervadisURL = *req.CybervadisURL
+			}
+			if req.CybervadisExpiresOn != nil {
+				thirdParty.CybervadisExpiresOn = *req.CybervadisExpiresOn
+			}
 
 			if req.TermsOfServiceURL != nil {
 				thirdParty.TermsOfServiceURL = *req.TermsOfServiceURL
@@ -606,6 +620,8 @@ func (s ThirdPartyService) Create(
 		HeadquarterAddress:            req.HeadquarterAddress,
 		LegalName:                     req.LegalName,
 		WebsiteURL:                    req.WebsiteURL,
+		CybervadisURL:                 req.CybervadisURL,
+		CybervadisExpiresOn:           req.CybervadisExpiresOn,
 		PrivacyPolicyURL:              req.PrivacyPolicyURL,
 		ServiceLevelAgreementURL:      req.ServiceLevelAgreementURL,
 		DataProcessingAgreementURL:    req.DataProcessingAgreementURL,

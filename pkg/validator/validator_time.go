@@ -160,3 +160,21 @@ func RangeDuration(min, max time.Duration) ValidatorFunc {
 		return nil
 	}
 }
+
+// CalendarDate validates a date without a time zone in YYYY-MM-DD format.
+func CalendarDate() ValidatorFunc {
+	return func(value any) *ValidationError {
+		actual, isNil := dereferenceValue(value)
+		if isNil {
+			return nil
+		}
+		date, ok := actual.(string)
+		if !ok {
+			return newValidationError(ErrorCodeInvalidFormat, "expected a calendar date")
+		}
+		if _, err := time.Parse(time.DateOnly, date); err != nil {
+			return newValidationError(ErrorCodeInvalidFormat, "expected a valid YYYY-MM-DD date")
+		}
+		return nil
+	}
+}
