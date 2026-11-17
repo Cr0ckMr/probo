@@ -62,7 +62,7 @@
     "errors": {
       "update": "Échec de la mise à jour de la photo de profil",
       "remove": "Échec de la suppression de la photo de profil",
-      "invalidFile": "Utilisez un JPEG ou un PNG de moins de 5 Mo."
+      "invalidFile": "Utilisez un JPEG ou un PNG de 5 Mo maximum."
     },
     "actions": {
       "upload": "Téléverser une photo",

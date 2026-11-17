@@ -61,7 +61,7 @@
     "errors": {
       "update": "No se pudo actualizar la foto de perfil",
       "remove": "No se pudo eliminar la foto de perfil",
-      "invalidFile": "Use un JPEG o PNG de menos de 5 MB."
+      "invalidFile": "Use un JPEG o PNG de 5 MB o menos."
     },
     "actions": {
       "upload": "Subir foto",
